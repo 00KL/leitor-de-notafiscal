@@ -1,14 +1,18 @@
 import { Module } from '@nestjs/common';
 import { InvoiceRepository } from 'src/application/repositories/invoice-repository';
-import { InMemoryInvoiceRepository } from 'test/repositories/in-memory-notification-repository';
+import { MongooseInvoiceRepository } from './mongoose/repositories/mongoose-invoice-repository';
+import { MongooseModule } from '@nestjs/mongoose';
+import { Invoice, InvoiceSchema } from './mongoose/schemas/Invoice.sheme';
 
 @Module({
-  imports: [],
+  imports: [
+    MongooseModule.forFeature([{ name: Invoice.name, schema: InvoiceSchema }]),
+  ],
   controllers: [],
   providers: [
     {
       provide: InvoiceRepository,
-      useClass: InMemoryInvoiceRepository,
+      useClass: MongooseInvoiceRepository,
     },
   ],
   exports: [InvoiceRepository],
