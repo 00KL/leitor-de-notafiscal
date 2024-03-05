@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import multiPart from '@fastify/multipart';
 import {
   FastifyAdapter,
   NestFastifyApplication,
@@ -10,6 +11,7 @@ async function bootstrap() {
     AppModule,
     new FastifyAdapter({ logger: true }),
   );
+  app.register(multiPart);
   await app.listen(3000);
 }
 bootstrap();
