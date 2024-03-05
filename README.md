@@ -17,13 +17,15 @@ This project is a tool for reading and processing electronic invoices (nota fisc
 
 ## Run prod
 
-1. Run the application: `yarn start`
-2. Access the application in your browser at `http://localhost:3000`
+1. Run the database: `docker-compose -d`
+2. Run the application: `yarn start`
+3. Access the application in your browser at `http://localhost:3000`
 
 ## Run dev
 
-1. Run the application: `yarn dev`
-2. Access the application in your browser at `http://localhost:3000`
+1. Run the database: `docker-compose -d`
+2. Run the application: `yarn dev`
+3. Access the application in your browser at `http://localhost:3000`
 
 ## Run unit test
 
